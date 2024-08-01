@@ -1,85 +1,74 @@
 "use client"
+import { Button } from '@/components/ui/button'
 import { db } from '@/utils/db'
 import { MockInterview } from '@/utils/schema'
 import { eq } from 'drizzle-orm'
+import { Lightbulb, WebcamIcon } from 'lucide-react'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import Webcam from 'react-webcam'
-import { WebcamIcon, LoaderCircle ,Lightbulb} from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
-function Interview({ params }) {
-  const [interviewData, setInterviewData] = useState(null);
-  const [webcamEnabled, setWebcamEnabled] = useState(false);
+function Interview({params}) {
 
-  useEffect(() => {
-    console.log(params.interviewid)
-    GetInterviewDetails();
-  }, [params])
+    const [interviewData,setInterviewData]=useState();
+    const [webCamEnabled,setWebCamEnabled]=useState();
+    useEffect(()=>{
+        console.log(params.interviewId)
+        GetInterviewDetails();
+    },[])
 
-  const GetInterviewDetails = async () => {
-    try {
-      const result = await db.select().from(MockInterview)
-        .where(eq(MockInterview.mockId, params.interviewid))
-      console.log(result);
-      setInterviewData(result[0])
-    } catch (error) {
-      console.error('Error fetching interview details:', error);
+    /**
+     * Used to Get Interview Details by MockId/Interview Id
+     */
+    const GetInterviewDetails=async()=>{
+        const result=await db.select().from(MockInterview)
+        .where(eq(MockInterview.mockId,params.interviewId))
+
+        setInterviewData(result[0]);
     }
-  }
-
-  const truncateString = (str, num) => {
-    if (str.length <= num) {
-      return str;
-    }
-    return str.slice(0, num) + '...';
-  }
-
   return (
     <div className='my-10 '>
-      <div className='flex justify-center items-center'>
-        <h2 className='font-bold text-2xl mb-5'>Let's Get Started</h2>
-      </div>
-      <div className='flex flex-col lg:flex-row lg:w-full lg:justify-center'>
-        <div className='lg:w-1/2 flex flex-col items-start px-4 lg:px-8'>
-          <div className='flex flex-col my-5 gap-3 p-5 border rounded-lg shadow-sm'>
-            <h2 className='text-lg'><strong>Job Role: </strong>{interviewData ? interviewData.jobPosition : <><LoaderCircle className='animate-spin' /></>}</h2>
-            <h2 className='text-lg'><strong>Job Description: </strong>{interviewData ? truncateString(interviewData.jobDesc, 100) : <><LoaderCircle className='animate-spin' /></>}</h2>
-            <h2 className='text-lg'><strong>Job Experience: </strong>{interviewData ? interviewData.jobExperience : <><LoaderCircle className='animate-spin' /></>}</h2>
-          </div>
-          <div className='p-5 rounded-lg border border-yellow-500 bg-yellow-100'>
-            <h2 className='flex gap-2 items-center text-yellow-600'> <Lightbulb/><strong>Information</strong></h2>
-            <h2 className='mt-3 text-yellow-600'>{process.env.NEXT_PUBLIC_INFORMATION}</h2>
-        </div>
-        </div>
-        <div className='lg:w-1/2 flex flex-col items-center px-4 lg:px'>
-          {webcamEnabled ? (
-            <>
-              <Webcam
-                onUserMedia={() => setWebcamEnabled(true)}
-                onUserMediaError={() => setWebcamEnabled(false)}
-                style={{
-                  height: 300,
-                  width: 300
-                }}  
-                mirrored={true}
-              />
-              <Button onClick={() => setWebcamEnabled(false)} className="hover:bg-blue-500 mt-3 hover:text-white w-full border shadow-md" variant="ghost">
-                Disable WebCam and Microphone
-              </Button>
+        <h2 className='font-bold text-2xl'>Let's Get Started</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
+       
+            <div className='flex flex-col my-5 gap-5 '>
+                <div className='flex flex-col p-5 rounded-lg border gap-5'>
+                    <h2 className='text-lg'><strong>Job Role/Job Position:</strong>{interviewData?.jobPosition} </h2>
+                    <h2 className='text-lg'><strong>Job Description/Tech Stack:</strong>{interviewData?.jobDesc} </h2>
+                    <h2 className='text-lg'><strong>Years of Experience:</strong>{interviewData?.jobExperience} </h2>
+                </div>
+                <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-100'>
+                   <h2 className='flex gap-2 items-center text-yellow-500'> <Lightbulb/><strong>Information</strong></h2>
+                    <h2 className='mt-3 text-yellow-500'>{process.env.NEXT_PUBLIC_INFORMATION}</h2>
+                </div>
+            </div>
+            <div>
+           {webCamEnabled? <Webcam
+           onUserMedia={()=>setWebCamEnabled(true)}
+           onUserMediaError={()=>setWebCamEnabled(false)}
+           mirrored={true}
+            style={{
+                height:300,
+                width:300
+            }}
+           />
+           :
+           <>
+            <WebcamIcon className='h-72 w-full my-7 p-20 bg-secondary rounded-lg border' />
+            <Button variant="ghost" className="w-full" onClick={()=>setWebCamEnabled(true)}>Enable Web Cam and Microphone</Button>
             </>
-          ) : (
-            <>
-              <WebcamIcon className='h-72 w-full my-7 p-20 bg-secondary rounded-lg border'></WebcamIcon>
-              <Button onClick={() => setWebcamEnabled(true)} className="hover:bg-blue-500 mt-3 hover:text-white w-full border shadow-md" variant="ghost">
-                Enable WebCam and Microphone
-              </Button>
-            </>
-          )}
+           }
+            </div>
+
+            
         </div>
-      </div>
-      <div className='flex items-end justify-end my-4'>
-        <Button className='bg-blue-500'>Start Interview</Button>
-      </div>
+        <div className='flex justify-end items-end'>
+            <Link href={'/dashboard/interview/'+params.interviewId+'/start'}>
+            <Button >Start Interview</Button>
+            </Link>
+           </div>
+
+           
     </div>
   )
 }
