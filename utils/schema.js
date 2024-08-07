@@ -5,6 +5,7 @@ export const MockInterview=pgTable('mockInterview',{
     jsonMockResp:text('jsonMockResp').notNull(),
     jobPosition:varchar('jobPosition').notNull(),
     jobDesc:varchar('jobDesc').notNull(),
+    interviewType: varchar('interview_type', { length: 20 }).notNull(),
     jobExperience:varchar('jobExperience').notNull(),
     createdBy:varchar('createdBy').notNull(),
     createdAt:varchar('createdAt'),
