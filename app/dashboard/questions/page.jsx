@@ -1,15 +1,15 @@
 "use client"
-import { db } from '@/utils/db'
-import { UserAnswer } from '@/utils/schema'
+import { db } from '../../../utils/db'
+import { UserAnswer } from '../../../utils/schema'
 import { eq } from 'drizzle-orm'
 import React, { useEffect, useState } from 'react'
 import {
     Collapsible,
     CollapsibleContent,
     CollapsibleTrigger,
-  } from "@/components/ui/collapsible"
+  } from "../../../components/ui/collapsible"
 import { ChevronsUpDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '../../../components/ui/button'
 import { useRouter } from 'next/navigation'
 
 
@@ -34,7 +34,7 @@ function Feedback({params}) {
     <div className='p-10'>
         
         {feedbackList?.length==0?
-        <h2 className='font-bold text-xl text-gray-500'>No Interview Feedback Record Found</h2>  
+        <h2 className='font-bold text-xl text-gray-500'>Work In Progress</h2>  
           :
         <>
        <h2 className='text-3xl font-bold text-green-500'>Congratulation!</h2>
