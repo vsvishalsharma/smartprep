@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import Header from "./dashboard/_components/Header";
+import Header from "./dashboard/components/Header";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
 
 export default function Home() {

@@ -3,13 +3,13 @@ import { db } from '@/utils/db';
 import { MockInterview } from '@/utils/schema';
 import { eq } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react'
-import QuestionsSection from './_components/QuestionsSection';
+import QuestionsSection from './components/QuestionsSection';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import dynamic from 'next/dynamic'
 
 const ClientSideRecordAnswerSection = dynamic(
-  () => import('./_components/RecordAnswerSection'),
+  () => import('./components/RecordAnswerSection'),
   { ssr: false }
 )
 
