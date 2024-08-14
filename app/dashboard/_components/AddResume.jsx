@@ -55,7 +55,7 @@ function AddResume() {
             transition-all border-dashed'
         onClick={()=>setOpenDialog(true)}
         >
-            <h2 className='text-lg text-center'>+ Create New Resume</h2>
+            <h2 className='text-lg text-center'>+ Create New Resume WIP</h2>
         </div>
 
         <Dialog open={openDialog}>

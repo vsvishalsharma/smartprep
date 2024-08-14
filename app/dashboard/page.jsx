@@ -1,8 +1,8 @@
 import { UserButton } from '@clerk/nextjs'
 import React from 'react'
-import AddNewInterview from '../_components/AddNewInterview'
-import InterviewList from '../_components/InterviewList'
-import AddResume from '../_components/AddResume'
+import AddNewInterview from '../dashboard/_components/AddNewInterview'
+import InterviewList from '../dashboard/_components/InterviewList'
+import AddResume from '../dashboard/_components/AddResume'
 
 function Dashboard() {
   return (

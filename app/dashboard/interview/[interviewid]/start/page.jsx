@@ -4,7 +4,7 @@ import { MockInterview } from '../../../../../utils/schema';
 import { eq } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react'
 import QuestionsSection from './_components/QuestionsSection';
-import { Button } from '@/components/ui/button';
+import { Button } from '../../../../../components/ui/button';
 import Link from 'next/link';
 import dynamic from 'next/dynamic'
 
