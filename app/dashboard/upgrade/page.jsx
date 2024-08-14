@@ -1,6 +1,6 @@
 import React from 'react'
 
-import planData from '../../../utils/planData'
+import planData from '@/utils/planData'
 import PlanItemCard from './_components/PlanItemCard'
 
 function Upgrade() {

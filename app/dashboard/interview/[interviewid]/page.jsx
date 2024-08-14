@@ -1,7 +1,7 @@
 "use client"
-import { Button } from '../../../../components/ui/button'
-import { db } from '../../../../utils/db'
-import { MockInterview } from '../../../../utils/schema'
+import { Button } from '@/components/ui/button'
+import { db } from '@/utils/db'
+import { MockInterview } from '@/utils/schema'
 import { eq } from 'drizzle-orm'
 import { Lightbulb, WebcamIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -13,7 +13,7 @@ function Interview({params}) {
     const [interviewData,setInterviewData]=useState();
     const [webCamEnabled,setWebCamEnabled]=useState();
     useEffect(()=>{
-        
+        console.log(params.interviewId)
         GetInterviewDetails();
     },[])
 
@@ -26,16 +26,6 @@ function Interview({params}) {
 
         setInterviewData(result[0]);
     }
-
-    const TrimmedJobDescription = ({ description, maxLength = 100 }) => {
-        if (!description) return null;
-      
-        if (description.length <= maxLength) return description;
-      
-        const trimmedText = description.slice(0, maxLength).trim();
-        return trimmedText.slice(0, trimmedText.lastIndexOf(' ')) + '...';
-      };
-
   return (
     <div className='my-10 '>
         <h2 className='font-bold text-2xl'>Let's Get Started</h2>
@@ -44,10 +34,7 @@ function Interview({params}) {
             <div className='flex flex-col my-5 gap-5 '>
                 <div className='flex flex-col p-5 rounded-lg border gap-5'>
                     <h2 className='text-lg'><strong>Job Role/Job Position:</strong>{interviewData?.jobPosition} </h2>
-                    <h2 className='text-lg'>
-                        <strong>Job Description/Tech Stack:</strong>
-                        <TrimmedJobDescription description={interviewData?.jobDesc} />
-                    </h2>
+                    <h2 className='text-lg'><strong>Job Description/Tech Stack:</strong>{interviewData?.jobDesc} </h2>
                     <h2 className='text-lg'><strong>Years of Experience:</strong>{interviewData?.jobExperience} </h2>
                 </div>
                 <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-100'>

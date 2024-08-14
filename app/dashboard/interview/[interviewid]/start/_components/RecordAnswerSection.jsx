@@ -1,14 +1,14 @@
 "use client"
-import { Button } from '../../../../../../components/ui/button'
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Webcam from 'react-webcam'
 import useSpeechToText from 'react-hook-speech-to-text';
 import { Mic, StopCircle } from 'lucide-react'
 import { toast } from 'sonner'
-import { chatSession } from '../../../../../../utils/GeminiAIModal'
-import { db } from '../../../../../../utils/db'
-import { UserAnswer } from '../../../../../../utils/schema'
+import { chatSession } from '@/utils/GeminiAIModal'
+import { db } from '@/utils/db'
+import { UserAnswer } from '@/utils/schema'
 import { useUser } from '@clerk/nextjs'
 import moment from 'moment'
 
@@ -57,7 +57,7 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
 
       const UpdateUserAnswer=async()=>{
 
-        
+        console.log(userAnswer)
         setLoading(true)
         const feedbackPrompt="Question:"+mockInterviewQuestion[activeQuestionIndex]?.question+
         ", User Answer:"+userAnswer+",Depends on question and user answer for give interview question "+
