@@ -1,7 +1,7 @@
 "use client"
-import { Button } from './../../../../components/ui/button'
-import { db } from './../../../../utils/db'
-import { MockInterview } from './../../../../utils/schema'
+import { Button } from '../../../../../components/ui/button'
+import { db } from '../../../../../utils/db'
+import { MockInterview } from '../../../../../utils/schema'
 import { eq } from 'drizzle-orm'
 import { Lightbulb, WebcamIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -13,7 +13,7 @@ function Interview({params}) {
     const [interviewData,setInterviewData]=useState();
     const [webCamEnabled,setWebCamEnabled]=useState();
     useEffect(()=>{
-        console.log(params.interviewId)
+        
         GetInterviewDetails();
     },[])
 

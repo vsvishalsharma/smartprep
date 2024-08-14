@@ -57,7 +57,7 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
 
       const UpdateUserAnswer=async()=>{
 
-        console.log(userAnswer)
+        
         setLoading(true)
         const feedbackPrompt="Question:"+mockInterviewQuestion[activeQuestionIndex]?.question+
         ", User Answer:"+userAnswer+",Depends on question and user answer for give interview question "+

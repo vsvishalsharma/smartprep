@@ -44,52 +44,48 @@ with our AI-powered interview prep</p>
 <h2 className="text-md text-gray-500">Give mock interview in just 3 simplar easy step</h2>
 
 <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <a
-        className="block rounded-xl border bg-white
-         border-gray-200 p-8 shadow-xl transition
-         hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="#"
-      >
-       <AtomIcon className='h-8 w-8'/>
+  <a
+    className="block rounded-xl border bg-white
+     border-gray-200 p-8 shadow-xl transition
+     hover:border-pink-500/10 hover:shadow-pink-500/10"
+    href="#"
+  >
+    <AtomIcon className='h-8 w-8'/>
 
-        <h2 className="mt-4 text-xl font-bold text-black">Write promot for your form</h2>
+    <h2 className="mt-4 text-xl font-bold text-black">Provide Job Details</h2>
 
-        <p className="mt-1 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
+    <p className="mt-1 text-sm text-gray-600">
+      Enter the job description, required experience, and interview type to tailor your mock interview experience.
+    </p>
+  </a>
 
-      <a
-        className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="#"
-      >
-      <Edit className='h-8 w-8'/>
+  <a
+    className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+    href="#"
+  >
+    <Edit className='h-8 w-8'/>
 
-        <h2 className="mt-4 text-xl font-bold text-black">Edit Your form </h2>
+    <h2 className="mt-4 text-xl font-bold text-black">Customize Your Interview</h2>
 
-        <p className="mt-1 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
+    <p className="mt-1 text-sm text-gray-600">
+      Adjust the generated interview questions and settings to better suit your preparation needs.
+    </p>
+  </a>
 
-      <a
-        className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
-        href="#"
-      >
-      <Share2 className='h-8 w-8' />
+  <a
+    className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+    href="#"
+  >
+    <Share2 className='h-8 w-8' />
 
-        <h2 className="mt-4 text-xl font-bold text-black">Share & Start Accepting Responses</h2>
+    <h2 className="mt-4 text-xl font-bold text-black">Start Your Mock Interview</h2>
 
-        <p className="mt-1 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
-        </p>
-      </a>
+    <p className="mt-1 text-sm text-gray-600">
+      Begin your AI-powered mock interview. Enable your microphone and webcam to practice in a realistic setting.
+    </p>
+  </a>
+</div>
 
-    
-    </div>
 
     <div className="mt-12 text-center">
       <a

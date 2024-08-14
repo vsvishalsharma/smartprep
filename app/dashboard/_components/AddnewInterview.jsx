@@ -34,7 +34,7 @@ function AddNewInterview() {
     const onSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
-        console.log(jobPosition, jobDesc, jobExperience, interviewType);
+        
 
         let InputPrompt;
         if (interviewType === 'technical') {
@@ -45,7 +45,7 @@ function AddNewInterview() {
 
         const result = await chatSession.sendMessage(InputPrompt);
         const MockJsonResp = (result.response.text()).replace('```json', '').replace('```', '');
-        console.log(JSON.parse(MockJsonResp));
+        
         setJsonResponse(MockJsonResp);
 
         if (MockJsonResp) {
@@ -61,13 +61,13 @@ function AddNewInterview() {
                     createdAt: moment().format('DD-MM-yyyy')
                 }).returning({ mockId: MockInterview.mockId });
 
-            console.log("Inserted ID:", resp);
+            
             if (resp) {
                 setOpenDailog(false);
                 router.push('/dashboard/interview/' + resp[0]?.mockId);
             }
         } else {
-            console.log("ERROR");
+            
         }
         setLoading(false);
     }
