@@ -38,7 +38,7 @@ To start using SmartPrep, visit our website and create an account. Once logged i
 - 🖥️ Frontend: Next.js, React
 - 🗄️ Backend: Node.js
 - 🗃️ Database: PostgreSQL
-- 🤖 AI Integration: [Specific AI technology used]
+- 🤖 AI Integration: Gemini
 
 ## 📢 Feedback and Support
 
@@ -51,8 +51,7 @@ We take your privacy seriously. All your interview data and personal information
 🤝 Contributing
 We welcome contributions! Here's how you can contribute:
 
--Fork the repository.
--Create a new branch (git checkout -b feature/your-feature).
--Commit your changes (git commit -m 'Add some feature').
--Push to the branch (git push origin feature/your-feature).
--Open a Pull Request.
+- Fork the repository
+- create a branch with you feature name
+- Push into your local repo
+- create PR
