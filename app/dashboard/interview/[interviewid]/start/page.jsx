@@ -3,15 +3,10 @@ import { db } from '@/utils/db';
 import { MockInterview } from '@/utils/schema';
 import { eq } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react'
-import QuestionsSection from './components/QuestionsSection';
+import QuestionsSection from './_components/QuestionsSection';
+import RecordAnswerSection from './_components/RecordAnswerSection';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import dynamic from 'next/dynamic'
-
-const ClientSideRecordAnswerSection = dynamic(
-  () => import('./components/RecordAnswerSection'),
-  { ssr: false }
-)
 
 function StartInterview({params}) {
 
@@ -41,11 +36,10 @@ function StartInterview({params}) {
             <QuestionsSection 
             mockInterviewQuestion={mockInterviewQuestion}
             activeQuestionIndex={activeQuestionIndex}
-            setActiveQuestionIndex={setActiveQuestionIndex}
             />
 
             {/* Video/ Audio Recording  */}
-            <ClientSideRecordAnswerSection
+            <RecordAnswerSection
              mockInterviewQuestion={mockInterviewQuestion}
              activeQuestionIndex={activeQuestionIndex}
              interviewData={interviewData}

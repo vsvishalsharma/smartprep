@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './components/Header'
+import Header from './_components/Header'
 
 function DashboardLayout({children}) {
   return (
